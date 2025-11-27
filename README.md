@@ -1,53 +1,80 @@
-# Professional Portfolio – Pratik.k
+# Pratik Kumar - Advanced Portfolio
 
-A responsive and modern portfolio website built with **HTML**, **CSS**, and **JavaScript**, showcasing my projects, skills, and experience. Designed to provide a seamless user experience with dark mode, dynamic data loading via JSON, and a functional contact form.
+A modern, animated portfolio built with React, TypeScript, and Framer Motion featuring a unique color palette and smooth animations.
 
-## 🌐 Live Demo
+## 🚀 Features
 
-[View Portfolio](#) <!-- Add your live GitHub Pages or hosted link here -->
+- ⚡ **React 18** with TypeScript
+- 🎨 **Framer Motion** for smooth animations
+- 🎯 **Unique Color Palette** - Modern gradient design
+- 🌓 **Dark/Light Theme** toggle
+- 📱 **Fully Responsive** design
+- ⚡ **Vite** for fast development
+- 🎭 **Smooth Animations** throughout
 
-## ✨ Features
+## 🛠️ Tech Stack
 
-- Responsive design optimized for all screen sizes
-- Dark/light theme toggle
-- Project details rendered from `data.json`
-- Smooth scroll and animation effects
-- Contact form with validation and submission
-- Clean, modular code structure
+- React 18.2.0
+- TypeScript 5.2.2
+- Framer Motion 10.16.16
+- Vite 5.0.8
+- React Icons 4.12.0
 
-## 🛠 Tech Stack
+## 📦 Installation
 
-- **HTML5** – Markup structure
-- **CSS3** – Styling and responsive layout
-- **JavaScript (ES6)** – Interactivity and dynamic rendering
-- **JSON** – Project and skill data storage
-- **Form Handling** – Contact form with validation (submission to email or service like Formspree)
-
-## 📁 File Structure
-📂 Portfolio/
-├── index.html
-├── style.css
-├── script.js
-├── data.json
-└── README.md
-
-
-## 📬 Contact Form
-
-Includes a fully functional form to collect user name, email, and message with client-side validation. Easily connect to **Formspree**, **Netlify Forms**, or a custom backend for submissions.
-
-## 📸 Preview
-
-![Portfolio Screenshot](assets/preview.png) <!-- Add![Screenshot 2025-06-09 at 9 39 53 PM](https://github.com/user-attachments/assets/342a1178-ad3f-42f9-bf54-db72d9219362)
- a real screenshot if available -->
-
-## 🚀 Getting Started
-
-1. Clone the repo:
    ```bash
-   git clone https://github.com/Prateeeek7/Pratik-Portfolio.git
-   cd portfolio
-2. Open index.html in your browser.
+# Install dependencies
+npm install
 
-📄 License
-This project is open-source and available under the MIT License
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+## 🎨 Color Palette
+
+- **Primary**: Coral Red (#E63946) to Vibrant Red (#FF6B6B)
+- **Secondary**: Turquoise (#4ECDC4) to Teal (#06A77D)
+- **Accent**: Purple, Orange, Yellow, Blue
+- **Gradients**: Multi-color gradients for modern look
+
+## 📁 Project Structure
+
+```
+src/
+├── components/     # React components
+├── hooks/          # Custom hooks (theme)
+├── styles/         # Global styles & colors
+├── types/          # TypeScript types
+└── App.tsx         # Main app component
+```
+
+## 🌐 Deployment
+
+The portfolio is ready to deploy to:
+- Vercel (recommended)
+- Netlify
+- GitHub Pages
+- Any static hosting service
+
+## 📝 Data Source
+
+All portfolio data is loaded from `data.json` in the public folder. Update this file to change your portfolio content.
+
+## 🎯 Features
+
+- Smooth scroll animations
+- Interactive project cards
+- Animated skill bars
+- Theme switching
+- Mobile-responsive navigation
+- Contact form integration
+
+---
+
+Built with ❤️ by Pratik Kumar

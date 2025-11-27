@@ -5,7 +5,7 @@
     "email": "pratik2002singh@gmail.com",
     "phone": "+91-9109-787-343",
     "location": "Vellore, Tamil Nadu, India",
-    "bio": "I'm a passionate full-stack developer and designer with over 4 years of experience creating digital solutions that make a difference. My journey began with a curiosity about how things work, which led me to explore the fascinating world of technology and design."
+    "bio": "I'm a passionate full-stack developer and designer, currently pursuing my engineering degree while building innovative digital solutions. My journey began with a curiosity about how things work, which led me to explore the fascinating world of technology and design. Through self-learning and hands-on projects, I've developed expertise in web development, AI/ML integration, and UI/UX design."
   },
   "skills": {
     "technical": [
@@ -15,28 +15,30 @@
       { "name": "Python", "proficiency": 75 },
       { "name": "TypeScript", "proficiency": 70 },
       { "name": "MongoDB", "proficiency": 75 },
-      { "name": "PostgreSQL", "proficiency": 70 },
-      { "name": "LangChain", "proficiency": 80 },
-      { "name": "PyTorch", "proficiency": 75 },
-      { "name": "TensorFlow", "proficiency": 70 },
+      { "name": "PostgreSQL", "proficiency": 70 }
+    ],
+    "ai": [
       { "name": "OpenAI API", "proficiency": 85 },
       { "name": "Google Gemini", "proficiency": 85 },
+      { "name": "LangChain", "proficiency": 80 },
       { "name": "RAG Systems", "proficiency": 80 },
-      { "name": "Machine Learning", "proficiency": 75 }
+      { "name": "PyTorch", "proficiency": 75 },
+      { "name": "Machine Learning", "proficiency": 75 },
+      { "name": "TensorFlow", "proficiency": 70 }
     ],
     "design": [
       { "name": "Figma", "proficiency": 90 },
-      { "name": "Adobe Creative Suite", "proficiency": 80 },
       { "name": "UI/UX Design", "proficiency": 85 },
-      { "name": "Prototyping", "proficiency": 75 },
-      { "name": "Wireframing", "proficiency": 80 }
+      { "name": "Adobe Creative Suite", "proficiency": 80 },
+      { "name": "Wireframing", "proficiency": 80 },
+      { "name": "Prototyping", "proficiency": 75 }
     ],
     "tools": [
       { "name": "Git", "proficiency": 90 },
+      { "name": "Jest", "proficiency": 75 },
       { "name": "Docker", "proficiency": 70 },
-      { "name": "AWS", "proficiency": 65 },
       { "name": "Webpack", "proficiency": 70 },
-      { "name": "Jest", "proficiency": 75 }
+      { "name": "AWS", "proficiency": 65 }
     ]
   },
   "projects": [
@@ -69,7 +71,7 @@
     {
       "id": 3,
       "title": "EMS - Environmental Monitoring System",
-      "category": "web",
+      "category": "iot",
       "description": "IoT-based real-time environmental monitoring system using ESP8266 microcontroller with DHT11 temperature/humidity sensor and gas sensor. Features include WiFi connectivity, Flask REST API backend, Streamlit dashboard with interactive charts, LCD display, cloud data storage, and real-time analytics. Monitors air quality, temperature, and humidity with automatic data logging.",
       "technologies": ["C++", "Arduino", "ESP8266", "Python", "Flask", "Streamlit", "Plotly", "Pandas", "SQLite", "DHT11"],
       "image": "EMD.png",
@@ -82,7 +84,7 @@
     {
       "id": 4,
       "title": "BiomechAI",
-      "category": "web",
+      "category": "iot",
       "description": "Advanced biomechanics analysis platform combining ESP32 sensor data collection with AI-powered posture and gait analysis. Features real-time biomechanical assessment using MediaPipe pose detection, MPU6050 IMU sensor integration, Google Gemini AI chatbot for personalized recommendations, interactive dashboard with live data visualization, and comprehensive biomechanical reports. Enables real-time posture monitoring and gait pattern analysis.",
       "technologies": ["React", "TypeScript", "ESP32", "MPU6050", "Convex", "Google Gemini", "MediaPipe", "Tailwind CSS", "Framer Motion", "Arduino"],
       "image": "BiomechAI.png",
@@ -114,6 +116,54 @@
       "featured": true,
       "links": {
         "github": "https://github.com/Prateeeek7/FloatChat-AI.git"
+      }
+    },
+    {
+      "id": 7,
+      "title": "Swastify",
+      "category": "design",
+      "description": "A comprehensive healthcare app designed to provide seamless medical services, appointment booking, health tracking, and patient management. Features intuitive UI/UX design with focus on accessibility and user experience for both patients and healthcare providers.",
+      "technologies": ["Figma", "UI/UX Design", "Healthcare", "Mobile App Design"],
+      "image": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&q=80&fit=crop&auto=format",
+      "featured": false,
+      "links": {
+        "demo": "https://www.figma.com/design/FeJTkvwl5qASIdKdKjy0ft/Swastify?node-id=0-1&t=6YXak6eswEwNPHQl-1"
+      }
+    },
+    {
+      "id": 8,
+      "title": "PrepMate",
+      "category": "design",
+      "description": "An exam study companion app designed to help students prepare effectively. Features study planning, progress tracking, mock tests, and personalized learning recommendations. Clean and modern UI focused on reducing study anxiety and improving productivity.",
+      "technologies": ["Figma", "UI/UX Design", "Education", "Mobile App Design"],
+      "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80&fit=crop&auto=format",
+      "featured": false,
+      "links": {
+        "demo": "https://www.figma.com/design/S0tmUfP9rU54l6yEuYej26/PrepMate?node-id=0-1&t=G4SjIE3BgS2Paag4-1"
+      }
+    },
+    {
+      "id": 9,
+      "title": "Moodify",
+      "category": "design",
+      "description": "A mood-based music recommendation app that suggests songs and playlists based on user's current emotional state. Features intuitive mood selection, personalized playlists, and seamless music discovery experience with beautiful, emotion-driven UI design.",
+      "technologies": ["Figma", "UI/UX Design", "Music", "Mobile App Design"],
+      "image": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80&fit=crop&auto=format",
+      "featured": false,
+      "links": {
+        "demo": "https://www.figma.com/design/XZkuVJVMdTm15N5T6nsmkN/Moodify?node-id=0-1&t=bHUqUimQ06x1F73k-1"
+      }
+    },
+    {
+      "id": 10,
+      "title": "CaSScade 2025",
+      "category": "design",
+      "description": "Website design for CaSScade 2025, a technical chapter event at college. Features modern, engaging design with event information, registration system, schedule, and interactive elements. Designed to create excitement and encourage participation.",
+      "technologies": ["Figma", "UI/UX Design", "Web Design", "Event Website"],
+      "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80&fit=crop&auto=format",
+      "featured": false,
+      "links": {
+        "demo": "https://www.figma.com/design/xzPdEcs40oI6fHZuR1bBOE/CaSScade-2025?node-id=153-164&t=fD8HwrkJ6nTAxv4H-1"
       }
     }
   ],

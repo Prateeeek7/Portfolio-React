@@ -1,0 +1,207 @@
+{
+  "personal": {
+    "name": "Pratik Kumar",
+    "title": "Full Stack Developer & UI/UX Designer",
+    "email": "pratik2002singh@gmail.com",
+    "phone": "+91-9109-787-343",
+    "location": "Vellore, Tamil Nadu, India",
+    "bio": "I'm a passionate full-stack developer and designer, currently pursuing my engineering degree while building innovative digital solutions. My journey began with a curiosity about how things work, which led me to explore the fascinating world of technology and design. Through self-learning and hands-on projects, I've developed expertise in web development, AI/ML integration, and UI/UX design."
+  },
+  "skills": {
+    "technical": [
+      { "name": "JavaScript", "proficiency": 90 },
+      { "name": "React", "proficiency": 85 },
+      { "name": "Node.js", "proficiency": 80 },
+      { "name": "Python", "proficiency": 75 },
+      { "name": "TypeScript", "proficiency": 70 },
+      { "name": "MongoDB", "proficiency": 75 },
+      { "name": "PostgreSQL", "proficiency": 70 }
+    ],
+    "ai": [
+      { "name": "OpenAI API", "proficiency": 85 },
+      { "name": "Google Gemini", "proficiency": 85 },
+      { "name": "LangChain", "proficiency": 80 },
+      { "name": "RAG Systems", "proficiency": 80 },
+      { "name": "PyTorch", "proficiency": 75 },
+      { "name": "Machine Learning", "proficiency": 75 },
+      { "name": "TensorFlow", "proficiency": 70 }
+    ],
+    "design": [
+      { "name": "Figma", "proficiency": 90 },
+      { "name": "UI/UX Design", "proficiency": 85 },
+      { "name": "Adobe Creative Suite", "proficiency": 80 },
+      { "name": "Wireframing", "proficiency": 80 },
+      { "name": "Prototyping", "proficiency": 75 }
+    ],
+    "tools": [
+      { "name": "Git", "proficiency": 90 },
+      { "name": "Jest", "proficiency": 75 },
+      { "name": "Docker", "proficiency": 70 },
+      { "name": "Webpack", "proficiency": 70 },
+      { "name": "AWS", "proficiency": 65 }
+    ]
+  },
+  "projects": [
+    {
+      "id": 1,
+      "title": "World of Human Cells",
+      "category": "web",
+      "description": "An interactive educational platform exploring human cell biology with AI-powered chatbot, comprehensive cell information, research references, and interactive timelines. Features include cell comparison, search functionality, and PWA support.",
+      "technologies": ["React", "React Router", "Tailwind CSS", "Framer Motion", "Groq API", "React Markdown", "PWA"],
+      "image": "Cells.png",
+      "featured": true,
+      "links": {
+        "demo": "http://worldofhumancells.vercel.app",
+        "github": "https://github.com/Prateeeek7/World-of-Cells.git"
+      }
+    },
+    {
+      "id": 2,
+      "title": "Zero Waste Lifestyle",
+      "category": "web",
+      "description": "A comprehensive sustainability platform with AI-powered waste classification using Google Gemini Vision, LLaMA 3 chatbot, interactive recycling map, gamification system with badges, quiz engine, impact calculator, and real-time analytics dashboard. Built with Next.js and Supabase.",
+      "technologies": ["Next.js", "TypeScript", "Supabase", "Google Gemini", "LLaMA 3", "Tailwind CSS", "shadcn/ui", "Framer Motion", "Leaflet"],
+      "image": "waste.png",
+      "featured": true,
+      "links": {
+        "demo": "https://zero-waste-lifestyle-indol.vercel.app/",
+        "github": "https://github.com/Prateeeek7/Zero-Waste-Lifestyle.git"
+      }
+    },
+    {
+      "id": 3,
+      "title": "EMS - Environmental Monitoring System",
+      "category": "iot",
+      "description": "IoT-based real-time environmental monitoring system using ESP8266 microcontroller with DHT11 temperature/humidity sensor and gas sensor. Features include WiFi connectivity, Flask REST API backend, Streamlit dashboard with interactive charts, LCD display, cloud data storage, and real-time analytics. Monitors air quality, temperature, and humidity with automatic data logging.",
+      "technologies": ["C++", "Arduino", "ESP8266", "Python", "Flask", "Streamlit", "Plotly", "Pandas", "SQLite", "DHT11"],
+      "image": "EMD.png",
+      "featured": true,
+      "links": {
+        "demo": "https://drive.google.com/file/d/1rm2vBBOxQ8T6EFnv6QUcrOKMPsiehR12/view?usp=sharing",
+        "github": "https://github.com/Prateeeek7/EMS-Environmental-Monitoring-System.git"
+      }
+    },
+    {
+      "id": 4,
+      "title": "BiomechAI",
+      "category": "iot",
+      "description": "Advanced biomechanics analysis platform combining ESP32 sensor data collection with AI-powered posture and gait analysis. Features real-time biomechanical assessment using MediaPipe pose detection, MPU6050 IMU sensor integration, Google Gemini AI chatbot for personalized recommendations, interactive dashboard with live data visualization, and comprehensive biomechanical reports. Enables real-time posture monitoring and gait pattern analysis.",
+      "technologies": ["React", "TypeScript", "ESP32", "MPU6050", "Convex", "Google Gemini", "MediaPipe", "Tailwind CSS", "Framer Motion", "Arduino"],
+      "image": "BiomechAI.png",
+      "featured": true,
+      "links": {
+        "demo": "https://drive.google.com/drive/folders/1TTz3fzyRwLvMzzOVJYborxDv1Ng4TsB8?usp=drive_link",
+        "github": "https://github.com/Prateeeek7/BiomechAI.git"
+      }
+    },
+    {
+      "id": 5,
+      "title": "Travelian India",
+      "category": "web",
+      "description": "AI-powered travel planning platform with multi-agent system using Google Gemini. Features intelligent itinerary generation, budget planning with multiple tiers, interactive maps with OpenStreetMap integration, real-time travel recommendations, and comprehensive travel planning. Built with React 19 and FastAPI backend, includes LangChain orchestration, MongoDB geo-based recommendations, and GSAP animations. Developed for Samsung PRISM GenAI Hackathon 2025.",
+      "technologies": ["React", "TypeScript", "FastAPI", "Python", "LangChain", "Google Gemini", "Tailwind CSS", "Framer Motion", "GSAP", "MongoDB", "OpenAI"],
+      "image": "travel.png",
+      "featured": true,
+      "links": {
+        "github": "https://github.com/Prateeeek7/Travelian_BitWizards_GenAI.git"
+      }
+    },
+    {
+      "id": 6,
+      "title": "FloatChat - AI-Powered ARGO Ocean Data Analysis",
+      "category": "web",
+      "description": "Intelligent conversational system for exploring and analyzing ARGO float oceanographic data using natural language queries. Features RAG (Retrieval-Augmented Generation) for natural language to SQL translation, interactive Streamlit dashboard with geospatial visualization, FastAPI RESTful backend, and trained LSTM/CNN models for ocean data prediction. Processes 6,514 NetCDF files with 6,178 ARGO float profiles covering temperature, salinity, pressure, and depth data across Indian, Southern, and Pacific Oceans. Optimized for 16GB M4 MacBook with memory-efficient chunked processing.",
+      "technologies": ["Python", "Streamlit", "FastAPI", "SQLite", "FAISS", "OpenAI", "PyTorch", "RAG", "LSTM", "CNN", "NetCDF", "Pandas"],
+      "image": "float.png",
+      "featured": true,
+      "links": {
+        "github": "https://github.com/Prateeeek7/FloatChat-AI.git"
+      }
+    },
+    {
+      "id": 7,
+      "title": "Swastify",
+      "category": "design",
+      "description": "A comprehensive healthcare app designed to provide seamless medical services, appointment booking, health tracking, and patient management. Features intuitive UI/UX design with focus on accessibility and user experience for both patients and healthcare providers.",
+      "technologies": ["Figma", "UI/UX Design", "Healthcare", "Mobile App Design"],
+      "image": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&q=80&fit=crop&auto=format",
+      "featured": false,
+      "links": {
+        "demo": "https://www.figma.com/design/FeJTkvwl5qASIdKdKjy0ft/Swastify?node-id=0-1&t=6YXak6eswEwNPHQl-1"
+      }
+    },
+    {
+      "id": 8,
+      "title": "PrepMate",
+      "category": "design",
+      "description": "An exam study companion app designed to help students prepare effectively. Features study planning, progress tracking, mock tests, and personalized learning recommendations. Clean and modern UI focused on reducing study anxiety and improving productivity.",
+      "technologies": ["Figma", "UI/UX Design", "Education", "Mobile App Design"],
+      "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80&fit=crop&auto=format",
+      "featured": false,
+      "links": {
+        "demo": "https://www.figma.com/design/S0tmUfP9rU54l6yEuYej26/PrepMate?node-id=0-1&t=G4SjIE3BgS2Paag4-1"
+      }
+    },
+    {
+      "id": 9,
+      "title": "Moodify",
+      "category": "design",
+      "description": "A mood-based music recommendation app that suggests songs and playlists based on user's current emotional state. Features intuitive mood selection, personalized playlists, and seamless music discovery experience with beautiful, emotion-driven UI design.",
+      "technologies": ["Figma", "UI/UX Design", "Music", "Mobile App Design"],
+      "image": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80&fit=crop&auto=format",
+      "featured": false,
+      "links": {
+        "demo": "https://www.figma.com/design/XZkuVJVMdTm15N5T6nsmkN/Moodify?node-id=0-1&t=bHUqUimQ06x1F73k-1"
+      }
+    },
+    {
+      "id": 10,
+      "title": "CaSScade 2025",
+      "category": "design",
+      "description": "Website design for CaSScade 2025, a technical chapter event at college. Features modern, engaging design with event information, registration system, schedule, and interactive elements. Designed to create excitement and encourage participation.",
+      "technologies": ["Figma", "UI/UX Design", "Web Design", "Event Website"],
+      "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80&fit=crop&auto=format",
+      "featured": false,
+      "links": {
+        "demo": "https://www.figma.com/design/xzPdEcs40oI6fHZuR1bBOE/CaSScade-2025?node-id=153-164&t=fD8HwrkJ6nTAxv4H-1"
+      }
+    }
+  ],
+  "experience": [
+    {
+      "company": "Jurident",
+      "position": "UI/UX Designer Intern",
+      "startDate": "April'25 - June'25",
+      "endDate": null,
+      "current": true,
+      "description": "Design user interfaces and experiences for web and mobile applications. Create wireframes, prototypes, and high-fidelity designs. Conduct user research and usability testing. Collaborate with development teams to ensure design implementation.",
+      "technologies": ["Figma", "Adobe XD", "Sketch", "Prototyping", "User Research"]
+    },
+    {
+      "company": "CSI - Computer Society of India",
+      "position": "Senior Core Member - Design Domain",
+      "startDate": "2024",
+      "endDate": null,
+      "current": true,
+      "description": "Lead design initiatives and mentor members in the Design domain. Organize design workshops, competitions, and events. Create user interfaces and experiences for society projects and events. Collaborate with cross-functional teams to deliver high-quality design solutions.",
+      "technologies": ["Figma", "Adobe XD", "Sketch", "Prototyping", "UI/UX Design"]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Vellore Institute of Technology",
+      "degree": "Bachelor of technology",
+      "field": "Elcetrical and Electronics Engineering",
+      "startYear": "2024",
+      "endYear": "2028",
+      "gpa": "9.2",
+      "current": false
+    }
+  ],
+  "social": {
+    "linkedin": "https://www.linkedin.com/in/pratik-kumar-198172186?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+    "github": "https://github.com/Prateeeek7",
+    "twitter": "https://x.com/PratikK54196490",
+    "dribbble": "https://dribbble.com/johndoe"
+  }
+}
