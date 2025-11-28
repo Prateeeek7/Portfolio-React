@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaArrowDown, FaGithub, FaLinkedin, FaTwitter, FaFilePdf } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaTwitter, FaFilePdf } from 'react-icons/fa';
 import type { Personal } from '../types';
 import { getProfileImage } from '../utils/images';
 import TypingEffect from './TypingEffect';
@@ -183,6 +183,18 @@ const Hero = ({ personal }: HeroProps) => {
             >
               Get In Touch
             </motion.a>
+            {/* Resume Download Button - Mobile */}
+            <motion.a
+              href="/resume.pdf"
+              download="Pratik_Kumar_Resume.pdf"
+              className="px-6 py-3 sm:px-8 sm:py-4 bg-transparent border-2 border-blue dark:border-blue-light text-blue dark:text-blue-light text-sm sm:text-base font-semibold rounded-full hover:bg-blue/10 dark:hover:bg-blue-light/10 transition-colors inline-flex items-center justify-center gap-2 min-h-[44px] sm:min-h-[3rem] sm:hidden"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              variants={itemVariants}
+            >
+              <FaFilePdf className="text-lg" />
+              Resume
+            </motion.a>
           </motion.div>
 
           <motion.div
@@ -276,15 +288,6 @@ const Hero = ({ personal }: HeroProps) => {
         </motion.div>
       </div>
 
-      <motion.a
-        href="#about"
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-blue dark:text-blue-light"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 1.5, repeat: Infinity }}
-        whileHover={{ scale: 1.2 }}
-      >
-        <FaArrowDown className="text-2xl" />
-      </motion.a>
 
       {/* Resume PDF Icon - Top Right Corner */}
       <AnimatePresence>

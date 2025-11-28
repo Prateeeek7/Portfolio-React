@@ -64,7 +64,7 @@ const Projects = ({ projects }: ProjectsProps) => {
             {filteredProjects.map((project, index) => (
               <motion.div
                 key={project.id}
-                className="group bg-cream dark:bg-black rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-blue/20 transition-all"
+                className="group bg-cream dark:bg-black rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-blue/20 transition-all flex flex-col"
                 initial={{ opacity: 0, y: 30, scale: 0.9 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true }}
@@ -81,8 +81,9 @@ const Projects = ({ projects }: ProjectsProps) => {
                     whileHover={{ scale: 1.1 }}
                     transition={{ duration: 0.5 }}
                   />
+                  {/* Desktop hover overlay - hidden on mobile */}
                   <motion.div
-                    className="absolute inset-0 bg-gradient-primary flex items-center justify-center gap-6"
+                    className="hidden sm:flex absolute inset-0 bg-gradient-primary items-center justify-center gap-6 z-10 pointer-events-none"
                     initial={{ opacity: 0 }}
                     whileHover={{ opacity: 0.95 }}
                     transition={{ duration: 0.3 }}
@@ -92,7 +93,7 @@ const Projects = ({ projects }: ProjectsProps) => {
                         href={project.links.demo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-14 h-14 bg-cream rounded-full flex items-center justify-center text-blue shadow-lg"
+                        className="w-14 h-14 bg-cream rounded-full flex items-center justify-center text-blue shadow-lg pointer-events-auto"
                         whileHover={{ scale: 1.15, rotate: 360 }}
                         whileTap={{ scale: 0.9 }}
                         initial={{ scale: 0 }}
@@ -107,7 +108,7 @@ const Projects = ({ projects }: ProjectsProps) => {
                         href={project.links.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-14 h-14 bg-cream rounded-full flex items-center justify-center text-blue shadow-lg"
+                        className="w-14 h-14 bg-cream rounded-full flex items-center justify-center text-blue shadow-lg pointer-events-auto"
                         whileHover={{ scale: 1.15, rotate: 360 }}
                         whileTap={{ scale: 0.9 }}
                         initial={{ scale: 0 }}
@@ -131,7 +132,7 @@ const Projects = ({ projects }: ProjectsProps) => {
                   </motion.span>
                   <h3 className="text-2xl font-bold text-black dark:text-cream mb-2">{project.title}</h3>
                   <p className="text-black/70 dark:text-cream/70 mb-4 line-clamp-3">{project.description}</p>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 mb-4">
                     {project.technologies.slice(0, 4).map((tech, techIndex) => (
                       <motion.span
                         key={tech}
@@ -144,6 +145,41 @@ const Projects = ({ projects }: ProjectsProps) => {
                         {tech}
                       </motion.span>
                     ))}
+                  </div>
+                  {/* Project Links - Always visible on mobile, hidden on desktop (desktop uses hover overlay on image) */}
+                  <div className="flex gap-3 sm:hidden">
+                    {project.links.demo && (
+                      <motion.a
+                        href={project.links.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 px-4 py-2.5 bg-gradient-primary text-cream rounded-full flex items-center justify-center gap-2 shadow-lg font-semibold text-sm"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.3 }}
+                      >
+                        <FaExternalLinkAlt className="text-base" />
+                        <span>View Project</span>
+                      </motion.a>
+                    )}
+                    {project.links.github && (
+                      <motion.a
+                        href={project.links.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 px-4 py-2.5 bg-cream dark:bg-black border-2 border-blue text-blue rounded-full flex items-center justify-center gap-2 shadow-lg font-semibold text-sm"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.4 }}
+                      >
+                        <FaGithub className="text-base" />
+                        <span>GitHub</span>
+                      </motion.a>
+                    )}
                   </div>
                 </div>
               </motion.div>
