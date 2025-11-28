@@ -1,4 +1,5 @@
 # Pratik Kumar - Advanced Portfolio
+www.pratikkumar.xyz
 
 A modern, animated portfolio built with React, TypeScript, and Framer Motion featuring a unique color palette and smooth animations.
 
