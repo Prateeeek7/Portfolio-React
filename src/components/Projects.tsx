@@ -17,10 +17,10 @@ const Projects = ({ projects }: ProjectsProps) => {
     : projects.filter(p => p.category === filter);
 
   return (
-    <section id="projects" className="py-24 px-4 sm:px-6 lg:px-8 bg-cream-dark dark:bg-black-light">
+    <section id="projects" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-cream-dark dark:bg-black-light">
       <div className="max-w-7xl mx-auto">
         <motion.h2
-          className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-center mb-12 bg-gradient-primary bg-clip-text text-transparent"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-center mb-8 sm:mb-12 bg-gradient-primary bg-clip-text text-transparent"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -30,7 +30,7 @@ const Projects = ({ projects }: ProjectsProps) => {
         </motion.h2>
 
         <motion.div
-          className="flex justify-center gap-3 mb-12 flex-wrap"
+          className="flex justify-center gap-2 sm:gap-3 mb-8 sm:mb-12 flex-wrap px-2"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -39,7 +39,7 @@ const Projects = ({ projects }: ProjectsProps) => {
           {categories.map((cat, index) => (
             <motion.button
               key={cat}
-              className={`px-6 py-3 rounded-full font-semibold transition-all ${
+              className={`px-4 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base rounded-full font-semibold transition-all min-h-[44px] touch-manipulation ${
                 filter === cat
                   ? 'bg-gradient-primary text-cream shadow-lg shadow-blue/30'
                   : 'bg-cream dark:bg-black border-2 border-blue-light/30 text-black dark:text-cream hover:border-blue'
@@ -57,7 +57,7 @@ const Projects = ({ projects }: ProjectsProps) => {
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8"
           layout
         >
           <AnimatePresence mode="wait">

@@ -100,13 +100,13 @@ const TimelineItemComponent = ({
         duration: 0.6,
         ease: [0.22, 1, 0.36, 1]
       }}
-      className="relative pl-20"
+      className="relative pl-12 sm:pl-16 md:pl-20"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
       {/* Timeline dot with scroll animation */}
       <motion.div
-        className="absolute left-4 top-2 h-8 w-8 rounded-full bg-gradient-primary border-4 border-cream dark:border-black z-10"
+        className="absolute left-2 sm:left-3 md:left-4 top-2 h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 rounded-full bg-gradient-primary border-2 sm:border-[3px] md:border-4 border-cream dark:border-black z-10"
         style={{
           scale: hovered ? 1.2 : dotScale,
           boxShadow: hovered ? '0 0 20px rgba(79, 112, 169, 0.6)' : dotGlow,
@@ -132,7 +132,7 @@ const TimelineItemComponent = ({
 
       {/* Title with scroll animation */}
       <motion.h3
-        className="text-2xl font-bold text-black dark:text-cream mb-4"
+              className="text-xl sm:text-2xl font-bold text-black dark:text-cream mb-3 sm:mb-4"
         animate={{ 
           x: hovered ? 5 : 0,
           opacity: isInView ? 1 : 0.6
@@ -144,7 +144,7 @@ const TimelineItemComponent = ({
 
       {/* Content card with scroll animation */}
       <motion.div
-        className="bg-cream-dark dark:bg-black-light rounded-xl p-6 shadow-lg"
+              className="bg-cream-dark dark:bg-black-light rounded-xl p-4 sm:p-6 shadow-lg"
         animate={{
           scale: hovered ? 1.02 : isInView ? 1 : 0.98,
           boxShadow: hovered

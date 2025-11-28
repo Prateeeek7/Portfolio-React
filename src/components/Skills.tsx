@@ -18,10 +18,10 @@ const Skills = ({ skills }: SkillsProps) => {
   ];
 
   return (
-    <section id="skills" className="py-24 px-4 sm:px-6 lg:px-8 bg-cream dark:bg-black" ref={ref}>
+    <section id="skills" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-cream dark:bg-black" ref={ref}>
       <div className="max-w-7xl mx-auto">
         <motion.h2
-          className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-center mb-16 bg-gradient-primary bg-clip-text text-transparent"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-center mb-10 sm:mb-16 bg-gradient-primary bg-clip-text text-transparent"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
@@ -29,11 +29,11 @@ const Skills = ({ skills }: SkillsProps) => {
           Skills & Expertise
         </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {categories.map((category, catIndex) => (
             <motion.div
               key={category.name}
-              className="bg-cream-dark dark:bg-black-light p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all min-h-[400px]"
+              className="bg-cream-dark dark:bg-black-light p-4 sm:p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all min-h-[350px] sm:min-h-[400px]"
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: catIndex * 0.1 }}

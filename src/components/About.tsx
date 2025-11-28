@@ -173,10 +173,10 @@ const About = ({ personal: _personal, experience, education, projects = [] }: Ab
   ];
 
   return (
-    <section id="about" className="py-24 px-4 sm:px-6 lg:px-8 bg-cream dark:bg-black">
+    <section id="about" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-cream dark:bg-black">
       <div className="max-w-7xl mx-auto">
         <motion.h2
-          className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-center mb-4 bg-gradient-primary bg-clip-text text-transparent"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-center mb-4 bg-gradient-primary bg-clip-text text-transparent"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -184,12 +184,12 @@ const About = ({ personal: _personal, experience, education, projects = [] }: Ab
         >
           My Journey
         </motion.h2>
-        
+
         <motion.p
-          className="text-center text-lg text-black/70 dark:text-cream/70 mb-16 max-w-2xl mx-auto"
+                className="text-center text-base sm:text-lg text-black/70 dark:text-cream/70 mb-10 sm:mb-16 max-w-2xl mx-auto px-4"
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           A timeline of my professional growth, achievements, and the projects that shaped my career

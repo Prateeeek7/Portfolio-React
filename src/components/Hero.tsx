@@ -51,7 +51,7 @@ const Hero = ({ personal }: HeroProps) => {
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center pt-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center pt-24 sm:pt-20 pb-12 sm:pb-0 px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Animated Background Gradient */}
       <motion.div
         className="absolute inset-0 bg-gradient-to-br from-blue/10 via-blue-light/10 to-cream-dark/20 dark:from-blue/20 dark:via-blue-light/20 dark:to-black-light/30"
@@ -62,7 +62,7 @@ const Hero = ({ personal }: HeroProps) => {
       
       {/* Floating Orbs */}
       <motion.div
-        className="absolute top-20 right-20 w-72 h-72 bg-blue-light/20 rounded-full blur-3xl"
+        className="absolute top-20 right-20 w-32 h-32 sm:w-48 sm:h-48 lg:w-72 lg:h-72 bg-blue-light/20 rounded-full blur-3xl hidden sm:block"
         animate={{
           x: [0, 50, 0],
           y: [0, 30, 0],
@@ -75,7 +75,7 @@ const Hero = ({ personal }: HeroProps) => {
         }}
       />
       <motion.div
-        className="absolute bottom-20 left-20 w-96 h-96 bg-blue/20 rounded-full blur-3xl"
+        className="absolute bottom-20 left-20 w-40 h-40 sm:w-64 sm:h-64 lg:w-96 lg:h-96 bg-blue/20 rounded-full blur-3xl hidden sm:block"
         animate={{
           x: [0, -30, 0],
           y: [0, -50, 0],
@@ -88,7 +88,7 @@ const Hero = ({ personal }: HeroProps) => {
         }}
       />
       
-      <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-12 items-center relative z-10">
+      <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-8 sm:gap-12 items-center relative z-10">
         {/* Resume Preview on Hover - Right Half - Full Height from Top */}
         <AnimatePresence>
           {showResumePreviewCTA && (
@@ -139,7 +139,7 @@ const Hero = ({ personal }: HeroProps) => {
           
           <motion.h1
             variants={itemVariants}
-            className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-black dark:text-cream leading-tight"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-black dark:text-cream leading-tight"
           >
             Hi, I'm{' '}
             <TypingEffect 
@@ -151,14 +151,14 @@ const Hero = ({ personal }: HeroProps) => {
           
           <motion.p
             variants={itemVariants}
-            className="text-2xl sm:text-3xl text-blue dark:text-blue-light font-semibold"
+            className="text-xl sm:text-2xl md:text-3xl text-blue dark:text-blue-light font-semibold"
           >
             {personal.title}
           </motion.p>
           
           <motion.p
             variants={itemVariants}
-            className="text-lg text-black/70 dark:text-cream/70 max-w-xl leading-relaxed"
+            className="text-base sm:text-lg text-black/70 dark:text-cream/70 max-w-xl leading-relaxed"
           >
             {personal.bio}
           </motion.p>
@@ -169,7 +169,7 @@ const Hero = ({ personal }: HeroProps) => {
           >
             <motion.a
               href="#projects"
-              className="px-8 py-4 bg-gradient-primary text-cream font-semibold rounded-full shadow-lg shadow-blue/30 hover:shadow-xl hover:shadow-blue/40 transition-shadow inline-flex items-center justify-center min-h-[3rem]"
+              className="px-6 py-3 sm:px-8 sm:py-4 bg-gradient-primary text-cream text-sm sm:text-base font-semibold rounded-full shadow-lg shadow-blue/30 hover:shadow-xl hover:shadow-blue/40 transition-shadow inline-flex items-center justify-center min-h-[44px] sm:min-h-[3rem]"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -177,7 +177,7 @@ const Hero = ({ personal }: HeroProps) => {
             </motion.a>
             <motion.a
               href="#contact"
-              className="px-8 py-4 bg-transparent border-2 border-blue dark:border-blue-light text-blue dark:text-blue-light font-semibold rounded-full hover:bg-blue/10 dark:hover:bg-blue-light/10 transition-colors inline-flex items-center justify-center min-h-[3rem]"
+              className="px-6 py-3 sm:px-8 sm:py-4 bg-transparent border-2 border-blue dark:border-blue-light text-blue dark:text-blue-light text-sm sm:text-base font-semibold rounded-full hover:bg-blue/10 dark:hover:bg-blue-light/10 transition-colors inline-flex items-center justify-center min-h-[44px] sm:min-h-[3rem]"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -213,13 +213,13 @@ const Hero = ({ personal }: HeroProps) => {
         </motion.div>
 
         <motion.div
-          className="relative flex justify-center items-center"
+          className="relative flex justify-center items-center mt-8 lg:mt-0"
           initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
           animate={{ opacity: 1, scale: 1, rotate: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
         >
           <motion.div
-            className="relative w-80 h-80 sm:w-96 sm:h-96"
+            className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96"
             animate={{
               y: [0, -20, 0],
             }}
@@ -292,7 +292,7 @@ const Hero = ({ personal }: HeroProps) => {
           <motion.a
             href="/resume.pdf"
             download="Pratik_Kumar_Resume.pdf"
-            className="fixed right-8 z-50 hidden lg:block"
+            className="fixed right-4 sm:right-8 z-50 hidden sm:block"
             style={{ top: 'calc(5rem + 15px)' }}
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -303,8 +303,8 @@ const Hero = ({ personal }: HeroProps) => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
           >
-            <div className="w-14 h-14 rounded-full bg-gradient-primary shadow-lg shadow-blue/30 flex items-center justify-center text-cream hover:shadow-xl hover:shadow-blue/40 transition-all">
-              <FaFilePdf className="text-2xl" />
+            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-primary shadow-lg shadow-blue/30 flex items-center justify-center text-cream hover:shadow-xl hover:shadow-blue/40 transition-all">
+              <FaFilePdf className="text-xl sm:text-2xl" />
             </div>
           </motion.a>
         )}

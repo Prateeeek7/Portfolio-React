@@ -30,7 +30,7 @@ const Navbar = () => {
         backgroundColor,
         backdropFilter: `blur(${blur}px)`,
       }}
-      className="fixed top-0 w-full z-50 py-4 border-b border-blue-light/20"
+      className="fixed top-0 w-full z-50 py-3 sm:py-4 border-b border-blue-light/20"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
@@ -38,7 +38,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
         <motion.a
           href="#home"
-          className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent"
+          className="text-xl sm:text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
@@ -74,7 +74,7 @@ const Navbar = () => {
         <div className="flex gap-4 items-center">
           <motion.button
             onClick={toggleTheme}
-            className="w-10 h-10 rounded-full bg-cream-dark dark:bg-black-light border border-blue-light/30 flex items-center justify-center text-black dark:text-cream transition-colors"
+            className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-cream-dark dark:bg-black-light border border-blue-light/30 flex items-center justify-center text-black dark:text-cream transition-colors touch-manipulation"
             whileHover={{ scale: 1.1, rotate: 180 }}
             whileTap={{ scale: 0.9 }}
             transition={{ duration: 0.3 }}
@@ -83,7 +83,7 @@ const Navbar = () => {
           </motion.button>
 
           <motion.button
-            className="md:hidden w-10 h-10 flex items-center justify-center text-black dark:text-cream text-2xl"
+            className="md:hidden w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center text-black dark:text-cream text-2xl touch-manipulation"
             onClick={() => setIsOpen(!isOpen)}
             whileTap={{ scale: 0.9 }}
           >
@@ -111,7 +111,7 @@ const Navbar = () => {
                 <motion.a
                   href={item.href}
                   onClick={() => setIsOpen(false)}
-                  className="block text-black dark:text-cream font-medium py-2 transition-colors hover:text-blue dark:hover:text-blue-light"
+                  className="block text-black dark:text-cream font-medium py-3 px-2 transition-colors hover:text-blue dark:hover:text-blue-light touch-manipulation min-h-[44px] flex items-center"
                   whileHover={{ x: 5 }}
                 >
                   {item.name}
