@@ -104,7 +104,7 @@ const Hero = ({ personal }: HeroProps) => {
             >
               <div className="h-full w-full relative">
                 <iframe
-                  src="/resume.pdf#toolbar=0&navpanes=0&scrollbar=0"
+                  src="/resume.pdf?v=2#toolbar=0&navpanes=0&scrollbar=0"
                   className="w-full h-full"
                   title="Resume Preview"
                 />
@@ -125,15 +125,15 @@ const Hero = ({ personal }: HeroProps) => {
           )}
         </AnimatePresence>
         <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
           className="space-y-6"
         >
           <motion.div
             variants={itemVariants}
             className="inline-block px-4 py-2 bg-blue-light/20 dark:bg-blue/30 rounded-full border border-blue/30"
-          >
+      >
             <span className="text-blue dark:text-blue-light font-medium">👋 Welcome to my portfolio</span>
           </motion.div>
           
@@ -185,7 +185,7 @@ const Hero = ({ personal }: HeroProps) => {
             </motion.a>
             {/* Resume Download Button - Mobile */}
             <motion.a
-              href="/resume.pdf"
+              href="/resume.pdf?v=2"
               download="Pratik_Kumar_Resume.pdf"
               className="px-6 py-3 sm:px-8 sm:py-4 bg-transparent border-2 border-blue dark:border-blue-light text-blue dark:text-blue-light text-sm sm:text-base font-semibold rounded-full hover:bg-blue/10 dark:hover:bg-blue-light/10 transition-colors inline-flex items-center justify-center gap-2 min-h-[44px] sm:min-h-[3rem] sm:hidden"
               whileHover={{ scale: 1.05, y: -2 }}
@@ -206,20 +206,20 @@ const Hero = ({ personal }: HeroProps) => {
               { icon: FaLinkedin, href: 'https://www.linkedin.com/in/pratik-kumar-198172186', label: 'LinkedIn' },
               { icon: FaTwitter, href: 'https://x.com/PratikK54196490', label: 'Twitter' },
             ].map((social, index) => (
-              <motion.a
+            <motion.a
                 key={social.label}
                 href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
+              target="_blank"
+              rel="noopener noreferrer"
                 className="w-12 h-12 rounded-full bg-cream-dark dark:bg-black-light border border-blue-light/30 flex items-center justify-center text-blue dark:text-blue-light hover:bg-blue-light/10 dark:hover:bg-blue/20 transition-colors"
                 whileHover={{ scale: 1.15, rotate: [0, -10, 10, -10, 0] }}
-                whileTap={{ scale: 0.9 }}
+              whileTap={{ scale: 0.9 }}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 + 0.8 }}
-              >
+            >
                 <social.icon className="text-xl" />
-              </motion.a>
+            </motion.a>
             ))}
           </motion.div>
         </motion.div>
@@ -293,7 +293,7 @@ const Hero = ({ personal }: HeroProps) => {
       <AnimatePresence>
         {isHeroInView && (
           <motion.a
-            href="/resume.pdf"
+            href="/resume.pdf?v=2"
             download="Pratik_Kumar_Resume.pdf"
             className="fixed right-4 sm:right-8 z-50 hidden sm:block"
             style={{ top: 'calc(5rem + 15px)' }}
@@ -305,11 +305,11 @@ const Hero = ({ personal }: HeroProps) => {
             onMouseLeave={() => setShowResumePreviewCTA(false)}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-          >
+      >
             <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-primary shadow-lg shadow-blue/30 flex items-center justify-center text-cream hover:shadow-xl hover:shadow-blue/40 transition-all">
               <FaFilePdf className="text-xl sm:text-2xl" />
             </div>
-          </motion.a>
+      </motion.a>
         )}
       </AnimatePresence>
 
