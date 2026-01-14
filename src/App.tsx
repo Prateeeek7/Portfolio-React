@@ -40,7 +40,7 @@ function App() {
             className="absolute inset-2 border-4 border-blue-light/30 border-t-blue-light rounded-full"
             animate={{ rotate: -360 }}
             transition={{ duration: 1.5, repeat: Infinity, ease: 'linear' }}
-          />
+        />
         </motion.div>
       </div>
     );

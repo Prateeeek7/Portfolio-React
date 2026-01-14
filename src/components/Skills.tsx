@@ -44,23 +44,23 @@ const Skills = ({ skills }: SkillsProps) => {
                 {category.name} Skills
               </h3>
               <div className="space-y-5">
-                {category.skills.map((skill, index) => (
-                  <motion.div
-                    key={skill.name}
+              {category.skills.map((skill, index) => (
+                <motion.div
+                  key={skill.name}
                     className="space-y-2"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={isInView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ delay: catIndex * 0.1 + index * 0.05 }}
-                  >
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ delay: catIndex * 0.1 + index * 0.05 }}
+                >
                     <div className="flex justify-between items-center">
                       <span className="font-semibold text-black dark:text-cream">{skill.name}</span>
                       <span className="text-blue dark:text-blue-light font-bold">{skill.proficiency}%</span>
-                    </div>
+                  </div>
                     <div className="w-full h-2 bg-cream dark:bg-black rounded-full overflow-hidden relative">
-                      <motion.div
+                    <motion.div
                         className="h-full bg-gradient-primary rounded-full relative overflow-hidden"
-                        initial={{ width: 0 }}
-                        animate={isInView ? { width: `${skill.proficiency}%` } : {}}
+                      initial={{ width: 0 }}
+                      animate={isInView ? { width: `${skill.proficiency}%` } : {}}
                         transition={{ 
                           delay: catIndex * 0.1 + index * 0.05, 
                           duration: 1,
@@ -85,7 +85,7 @@ const Skills = ({ skills }: SkillsProps) => {
                             width: '100%',
                             height: '100%',
                           }}
-                        />
+                    />
                         {/* Flowing shimmer overlay */}
                         <motion.div
                           className="absolute inset-0 rounded-full"
@@ -105,9 +105,9 @@ const Skills = ({ skills }: SkillsProps) => {
                           }}
                         />
                       </motion.div>
-                    </div>
-                  </motion.div>
-                ))}
+                  </div>
+                </motion.div>
+              ))}
               </div>
             </motion.div>
           ))}

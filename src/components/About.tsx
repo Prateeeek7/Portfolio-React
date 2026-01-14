@@ -191,7 +191,7 @@ const About = ({ personal: _personal, experience, education, projects = [] }: Ab
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-        >
+              >
           A timeline of my professional growth, achievements, and the projects that shaped my career
         </motion.p>
 

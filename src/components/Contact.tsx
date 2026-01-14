@@ -33,7 +33,7 @@ const Contact = ({ personal, social }: ContactProps) => {
       });
 
       if (response.ok) {
-        setSubmitted(true);
+    setSubmitted(true);
         setFormData({ name: '', email: '', subject: '', message: '' });
         setTimeout(() => {
           setSubmitted(false);
@@ -85,10 +85,10 @@ const Contact = ({ personal, social }: ContactProps) => {
                 whileHover={{ x: 5 }}
               >
                 <span className="text-3xl">{item.icon}</span>
-                <div>
+              <div>
                   <h4 className="text-lg font-semibold text-blue dark:text-blue-light mb-1">{item.label}</h4>
                   <p className="text-black/70 dark:text-cream/70">{item.value}</p>
-                </div>
+              </div>
               </motion.div>
             ))}
 
@@ -114,7 +114,7 @@ const Contact = ({ personal, social }: ContactProps) => {
                     transition={{ delay: index * 0.1 }}
                   >
                     {social.label}
-                  </motion.a>
+                </motion.a>
                 ))}
               </div>
             </div>

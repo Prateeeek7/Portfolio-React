@@ -61,18 +61,18 @@ const Projects = ({ projects }: ProjectsProps) => {
           layout
         >
           <AnimatePresence mode="wait">
-            {filteredProjects.map((project, index) => (
-              <motion.div
-                key={project.id}
+          {filteredProjects.map((project, index) => (
+            <motion.div
+              key={project.id}
                 className="group bg-cream dark:bg-black rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-blue/20 transition-all flex flex-col"
                 initial={{ opacity: 0, y: 30, scale: 0.9 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true }}
+              viewport={{ once: true }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
-                whileHover={{ y: -10, scale: 1.02 }}
+              whileHover={{ y: -10, scale: 1.02 }}
                 layout
-              >
+            >
                 <div className="relative h-64 overflow-hidden">
                   <motion.img
                     src={getProjectImage(project.title, project.category)}
@@ -88,36 +88,36 @@ const Projects = ({ projects }: ProjectsProps) => {
                     whileHover={{ opacity: 0.95 }}
                     transition={{ duration: 0.3 }}
                   >
-                    {project.links.demo && (
-                      <motion.a
-                        href={project.links.demo}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                  {project.links.demo && (
+                    <motion.a
+                      href={project.links.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
                         className="w-14 h-14 bg-cream rounded-full flex items-center justify-center text-blue shadow-lg pointer-events-auto"
                         whileHover={{ scale: 1.15, rotate: 360 }}
-                        whileTap={{ scale: 0.9 }}
+                      whileTap={{ scale: 0.9 }}
                         initial={{ scale: 0 }}
                         whileInView={{ scale: 1 }}
                         transition={{ delay: 0.1, type: 'spring' }}
-                      >
+                    >
                         <FaExternalLinkAlt className="text-xl" />
-                      </motion.a>
-                    )}
-                    {project.links.github && (
-                      <motion.a
-                        href={project.links.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    </motion.a>
+                  )}
+                  {project.links.github && (
+                    <motion.a
+                      href={project.links.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
                         className="w-14 h-14 bg-cream rounded-full flex items-center justify-center text-blue shadow-lg pointer-events-auto"
                         whileHover={{ scale: 1.15, rotate: 360 }}
-                        whileTap={{ scale: 0.9 }}
+                      whileTap={{ scale: 0.9 }}
                         initial={{ scale: 0 }}
                         whileInView={{ scale: 1 }}
                         transition={{ delay: 0.2, type: 'spring' }}
-                      >
+                    >
                         <FaGithub className="text-xl" />
-                      </motion.a>
-                    )}
+                    </motion.a>
+                  )}
                   </motion.div>
                 </div>
                 
@@ -144,7 +144,7 @@ const Projects = ({ projects }: ProjectsProps) => {
                       >
                         {tech}
                       </motion.span>
-                    ))}
+                  ))}
                   </div>
                   {/* Project Links - Always visible on mobile, hidden on desktop (desktop uses hover overlay on image) */}
                   <div className="flex gap-3 sm:hidden">
@@ -180,10 +180,10 @@ const Projects = ({ projects }: ProjectsProps) => {
                         <span>GitHub</span>
                       </motion.a>
                     )}
-                  </div>
                 </div>
-              </motion.div>
-            ))}
+              </div>
+            </motion.div>
+          ))}
           </AnimatePresence>
         </motion.div>
       </div>

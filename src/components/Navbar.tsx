@@ -42,7 +42,7 @@ const Navbar = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          Pratik.k
+            Pratik.k
         </motion.a>
 
         <ul className="hidden md:flex list-none gap-8 items-center">
