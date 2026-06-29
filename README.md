@@ -1,5 +1,6 @@
 # Pratik Kumar - Advanced Portfolio
-www.pratikkumar.xyz
+
+**Live:** [www.pratikkumar.xyz](https://www.pratikkumar.xyz) · **Source:** [GitHub](https://github.com/Prateeeek7/Portfolio-React)
 
 A modern, animated portfolio built with React, TypeScript, and Framer Motion featuring a unique color palette and smooth animations.
 

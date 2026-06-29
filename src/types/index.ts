@@ -13,7 +13,7 @@ export interface Skills {
 export interface Project {
   id: number;
   title: string;
-  category: 'web' | 'iot' | 'design' | 'mobile';
+  category: 'web' | 'iot' | 'design' | 'mobile' | 'ai-ml';
   description: string;
   technologies: string[];
   image: string;
@@ -32,6 +32,7 @@ export interface Experience {
   current: boolean;
   description: string;
   technologies: string[];
+  url?: string;
 }
 
 export interface Education {

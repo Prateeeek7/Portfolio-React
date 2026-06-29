@@ -3,28 +3,28 @@
 @tailwind utilities;
 
 @layer base {
-html {
-  scroll-behavior: smooth;
+  html {
+    scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: transparent;
-}
-
-body {
-    @apply bg-cream text-black font-sans antialiased;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  overflow-x: hidden;
-}
-
-  [data-theme="dark"] body {
-    @apply bg-black text-cream;
   }
 
-code {
-  font-family: 'Space Grotesk', source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
-}
+  body {
+    @apply bg-black text-white font-sans antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    overflow-x: hidden;
+    background-color: #000000;
+  }
 
-  /* Better touch targets for mobile */
+  [data-theme="light"] body {
+    @apply bg-[#f4f4f6] text-[#1a1a1f];
+    background-color: #f4f4f6;
+  }
+
+  code {
+    font-family: 'Share Tech Mono', monospace;
+  }
+
   button, a {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
     touch-action: manipulation;
@@ -32,36 +32,78 @@ code {
 }
 
 @layer utilities {
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    @apply bg-cream-dark;
+  /* Telemetry Grid Utility */
+  .bg-grid {
+    background-size: 50px 50px;
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
   }
 
-  [data-theme="dark"] ::-webkit-scrollbar-track {
-    @apply bg-black-light;
-}
+  [data-theme="light"] .bg-grid {
+    background-image: 
+      linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  }
 
-::-webkit-scrollbar-thumb {
-    @apply bg-gradient-to-b from-blue to-blue-light rounded-lg;
-}
+  /* Typography Utilities */
+  .font-serif-display {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
 
-::-webkit-scrollbar-thumb:hover {
-    @apply from-blue-dark to-blue;
-}
+  .font-tech {
+    font-family: 'Share Tech Mono', monospace;
+  }
 
-/* Selection */
-::selection {
-    @apply bg-blue-light text-cream;
-}
+  .font-sans-body {
+    font-family: 'Inter', sans-serif;
+  }
 
-  [data-theme="dark"] ::selection {
-    @apply bg-blue text-black;
+  /* Scrollbar HUD Style */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.95);
+  }
+
+  [data-theme="light"] ::-webkit-scrollbar-track {
+    background: #e4e4e7;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+
+  [data-theme="light"] ::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.15);
+  }
+
+  [data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  /* Custom Cursor Rules (only applied on devices with mouse) */
+  @media (pointer: fine) {
+    .custom-cursor-active,
+    .custom-cursor-active a,
+    .custom-cursor-active button,
+    .custom-cursor-active select,
+    .custom-cursor-active input,
+    .custom-cursor-active textarea {
+      cursor: none !important;
+    }
+  }
+
+  /* Highlight effect */
+  .hud-glow {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.03);
   }
 }
-
-
-

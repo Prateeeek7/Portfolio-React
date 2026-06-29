@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaTwitter, FaFilePdf } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaFilePdf, FaEnvelope, FaTimes } from 'react-icons/fa';
 import type { Personal } from '../types';
 import { getProfileImage } from '../utils/images';
-import TypingEffect from './TypingEffect';
 
 interface HeroProps {
   personal: Personal;
@@ -11,311 +10,228 @@ interface HeroProps {
 
 const Hero = ({ personal }: HeroProps) => {
   const [showResumePreviewCTA, setShowResumePreviewCTA] = useState(false);
-  const [isHeroInView, setIsHeroInView] = useState(true);
 
+  // Lock background scroll when resume preview drawer is open
   useEffect(() => {
-    const handleScroll = () => {
-      const heroSection = document.getElementById('home');
-      if (heroSection) {
-        const rect = heroSection.getBoundingClientRect();
-        // Check if hero section is in view (with some threshold)
-        const isVisible = rect.bottom > 0 && rect.top < window.innerHeight * 0.8;
-        setIsHeroInView(isVisible);
-      }
+    if (showResumePreviewCTA) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
     };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Check initial position
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [showResumePreviewCTA]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.3,
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: 'easeOut' },
+      transition: { duration: 0.5, ease: 'easeOut' },
     },
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center pt-24 sm:pt-20 pb-12 sm:pb-0 px-4 sm:px-6 lg:px-8 overflow-hidden">
-      {/* Animated Background Gradient */}
-      <motion.div
-        className="absolute inset-0 bg-gradient-to-br from-blue/10 via-blue-light/10 to-cream-dark/20 dark:from-blue/20 dark:via-blue-light/20 dark:to-black-light/30"
-        initial={{ scale: 1.2, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 1 }}
-      />
-      
-      {/* Floating Orbs */}
-      <motion.div
-        className="absolute top-20 right-20 w-32 h-32 sm:w-48 sm:h-48 lg:w-72 lg:h-72 bg-blue-light/20 rounded-full blur-3xl hidden sm:block"
-        animate={{
-          x: [0, 50, 0],
-          y: [0, 30, 0],
-          scale: [1, 1.2, 1],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: 'easeInOut',
-        }}
-      />
-      <motion.div
-        className="absolute bottom-20 left-20 w-40 h-40 sm:w-64 sm:h-64 lg:w-96 lg:h-96 bg-blue/20 rounded-full blur-3xl hidden sm:block"
-        animate={{
-          x: [0, -30, 0],
-          y: [0, -50, 0],
-          scale: [1, 1.1, 1],
-        }}
-        transition={{
-          duration: 10,
-          repeat: Infinity,
-          ease: 'easeInOut',
-        }}
-      />
-      
-      <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-8 sm:gap-12 items-center relative z-10">
-        {/* Resume Preview on Hover - Right Half - Full Height from Top */}
+    <section id="home" className="relative min-h-screen flex items-center pt-24 sm:pt-28 pb-12 px-4 sm:px-6 lg:px-8 bg-transparent bg-grid overflow-hidden">
+      {/* Subtle radial overlay behind content */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black pointer-events-none" />
+
+      {/* Background Glow spotlight */}
+      <div className="absolute top-[20%] left-[20%] w-[350px] h-[350px] rounded-full bg-cyan-500/5 blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-[20%] right-[10%] w-[450px] h-[450px] rounded-full bg-purple-500/5 blur-[150px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-12 gap-8 sm:gap-12 items-center relative z-10">
+        
+        {/* Resume Preview overlay (Right half drawer) */}
         <AnimatePresence>
           {showResumePreviewCTA && (
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.3 }}
-              className="fixed lg:left-[calc(50%+3rem+25px)] lg:right-4 w-[calc(70%-2rem+10px)] lg:w-auto lg:max-w-[calc(35%-3rem+10px)] bg-cream dark:bg-black rounded-t-2xl lg:rounded-2xl shadow-2xl z-40 overflow-hidden border-2 border-blue-light/30 dark:border-blue/30 border-t-0 lg:border-t-2 hidden lg:block"
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 26, stiffness: 200 }}
+              className="fixed top-0 right-0 h-screen w-full lg:w-1/2 bg-zinc-950 border-l border-zinc-800/80 z-50 shadow-2xl overflow-hidden pointer-events-auto flex flex-col pt-16 pb-6 px-4"
               onMouseEnter={() => setShowResumePreviewCTA(true)}
               onMouseLeave={() => setShowResumePreviewCTA(false)}
-              style={{ height: 'calc(70vh - 2.25rem + 10px)', top: 'calc(15vh + 4.5rem)' }}
             >
-              <div className="h-full w-full relative">
+              {/* Header: Close CTA */}
+              <div className="flex justify-between items-center mb-4 px-2">
+                <button
+                  onClick={() => setShowResumePreviewCTA(false)}
+                  className="text-[10px] font-tech text-zinc-500 hover:text-white transition-colors flex items-center gap-1.5 uppercase cursor-pointer"
+                >
+                  <FaTimes />
+                  CLOSE PREVIEW
+                </button>
+                <span className="text-[9px] font-tech text-zinc-650 uppercase">TELEMETRY DOCS</span>
+              </div>
+
+              {/* PDF Document Frame */}
+              <div className="flex-1 w-full bg-zinc-900 border border-zinc-900 rounded overflow-hidden relative">
                 <iframe
-                  src="/resume.pdf?v=2#toolbar=0&navpanes=0&scrollbar=0"
-                  className="w-full h-full"
+                  src="/resume.pdf?v=2#toolbar=0&navpanes=0&scrollbar=1"
+                  className="w-full h-full border-0"
                   title="Resume Preview"
                 />
-                <div className="absolute top-3 right-3">
-                  <motion.div
-                    className="w-8 h-8 rounded-full bg-blue/20 dark:bg-blue-light/20 backdrop-blur-sm flex items-center justify-center text-blue dark:text-blue-light cursor-pointer hover:bg-blue/30 dark:hover:bg-blue-light/30 text-xl font-bold"
-                    whileHover={{ scale: 1.1, rotate: 90 }}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setShowResumePreviewCTA(false);
-                    }}
-                  >
-                    ×
-                  </motion.div>
-                </div>
               </div>
             </motion.div>
           )}
         </AnimatePresence>
-        <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-          className="space-y-6"
-        >
-          <motion.div
-            variants={itemVariants}
-            className="inline-block px-4 py-2 bg-blue-light/20 dark:bg-blue/30 rounded-full border border-blue/30"
-      >
-            <span className="text-blue dark:text-blue-light font-medium">👋 Welcome to my portfolio</span>
-          </motion.div>
-          
-          <motion.h1
-            variants={itemVariants}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-black dark:text-cream leading-tight"
-          >
-            Hi, I'm{' '}
-            <TypingEffect 
-              text={personal.name.split(' ')[0]} 
-              speed={150}
-              className="bg-gradient-primary bg-clip-text text-transparent"
-            />
-          </motion.h1>
-          
-          <motion.p
-            variants={itemVariants}
-            className="text-xl sm:text-2xl md:text-3xl text-blue dark:text-blue-light font-semibold"
-          >
-            {personal.title}
-          </motion.p>
-          
-          <motion.p
-            variants={itemVariants}
-            className="text-base sm:text-lg text-black/70 dark:text-cream/70 max-w-xl leading-relaxed"
-          >
-            {personal.bio}
-          </motion.p>
 
-          <motion.div
-            variants={itemVariants}
-            className="flex flex-wrap gap-4 pt-4"
+        {/* Left Column: Telemetry info details */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="lg:col-span-7 space-y-6 sm:space-y-8"
+        >
+          {/* Engineering Philosophy statement */}
+          <motion.div variants={itemVariants} className="max-w-xl">
+            <span className="text-[10px] sm:text-xs font-tech text-zinc-500 tracking-wider uppercase block mb-1">DESIGN PHILOSOPHY</span>
+            <p className="text-zinc-400 font-tech text-xs sm:text-sm leading-relaxed border-l-2 border-cyan-400 pl-4 py-1">
+              — Not just building websites - engineering responsive, intelligent, and scalable full-stack hardware integrations.
+            </p>
+          </motion.div>
+
+          {/* Name Display */}
+          <motion.div variants={itemVariants} className="space-y-2">
+            <h1 className="text-5xl sm:text-7xl font-serif-display font-extrabold text-white tracking-tight leading-[1.05]">
+              {personal.name}
+            </h1>
+            <p className="text-xs sm:text-sm font-tech text-cyan-400 tracking-widest uppercase">
+              {personal.title}
+            </p>
+          </motion.div>
+
+          {/* Grid Metadata HUD */}
+          <motion.div 
+            variants={itemVariants} 
+            className="grid grid-cols-2 gap-4 border-t border-b border-zinc-900 py-6 max-w-md"
           >
-            <motion.a
-              href="#projects"
-              className="px-6 py-3 sm:px-8 sm:py-4 bg-gradient-primary text-cream text-sm sm:text-base font-semibold rounded-full shadow-lg shadow-blue/30 hover:shadow-xl hover:shadow-blue/40 transition-shadow inline-flex items-center justify-center min-h-[44px] sm:min-h-[3rem]"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              View My Work
-            </motion.a>
-            <motion.a
-              href="#contact"
-              className="px-6 py-3 sm:px-8 sm:py-4 bg-transparent border-2 border-blue dark:border-blue-light text-blue dark:text-blue-light text-sm sm:text-base font-semibold rounded-full hover:bg-blue/10 dark:hover:bg-blue-light/10 transition-colors inline-flex items-center justify-center min-h-[44px] sm:min-h-[3rem]"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Get In Touch
-            </motion.a>
-            {/* Resume Download Button - Mobile */}
+            <div>
+              <span className="text-[9px] font-tech text-zinc-500 tracking-widest block uppercase">CURRENT ROLE</span>
+              <span className="text-xs font-tech text-zinc-300">UI/UX & Web Dev Intern</span>
+            </div>
+            <div>
+              <span className="text-[9px] font-tech text-zinc-500 tracking-widest block uppercase">AFFILIATION</span>
+              <span className="text-xs font-tech text-zinc-300">
+                Founder and Lead Developer,{' '}
+                <a
+                  href="https://www.mmew3.xyz"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-500 hover:text-blue-400 hover:underline transition-all cursor-pointer pointer-events-auto"
+                >
+                  MMEW3 make me worldwideweb
+                </a>
+              </span>
+            </div>
+            <div className="mt-2">
+              <span className="text-[9px] font-tech text-zinc-500 tracking-widest block uppercase">ACADEMICS</span>
+              <span className="text-xs font-tech text-zinc-300">B.Tech ECE at VIT Vellore</span>
+            </div>
+            <div className="mt-2">
+              <span className="text-[9px] font-tech text-zinc-500 tracking-widest block uppercase">GPS LOCATION</span>
+              <span className="text-xs font-tech text-zinc-300">Vellore, Tamil Nadu, IN</span>
+            </div>
+          </motion.div>
+
+          {/* Action buttons & socials */}
+          <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-4 pt-2">
             <motion.a
               href="/resume.pdf?v=2"
               download="Pratik_Kumar_Resume.pdf"
-              className="px-6 py-3 sm:px-8 sm:py-4 bg-transparent border-2 border-blue dark:border-blue-light text-blue dark:text-blue-light text-sm sm:text-base font-semibold rounded-full hover:bg-blue/10 dark:hover:bg-blue-light/10 transition-colors inline-flex items-center justify-center gap-2 min-h-[44px] sm:min-h-[3rem] sm:hidden"
-              whileHover={{ scale: 1.05, y: -2 }}
+              className="px-6 py-2.5 sm:px-8 sm:py-3 bg-white text-black text-xs sm:text-sm font-tech font-bold rounded-full hover:bg-zinc-200 transition-colors inline-flex items-center gap-2 select-none cursor-pointer"
+              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              variants={itemVariants}
+              onMouseEnter={() => {
+                if (window.innerWidth >= 1024) {
+                  setShowResumePreviewCTA(true);
+                }
+              }}
+              onMouseLeave={() => {
+                if (window.innerWidth >= 1024) {
+                  setShowResumePreviewCTA(false);
+                }
+              }}
             >
-              <FaFilePdf className="text-lg" />
-              Resume
+              <FaFilePdf className="text-sm" />
+              DOWNLOAD RESUME
             </motion.a>
-          </motion.div>
 
-          <motion.div
-            variants={itemVariants}
-            className="flex gap-6 pt-4"
-          >
-            {[
-              { icon: FaGithub, href: 'https://github.com/Prateeeek7', label: 'GitHub' },
-              { icon: FaLinkedin, href: 'https://www.linkedin.com/in/pratik-kumar-198172186', label: 'LinkedIn' },
-              { icon: FaTwitter, href: 'https://x.com/PratikK54196490', label: 'Twitter' },
-            ].map((social, index) => (
             <motion.a
-                key={social.label}
-                href={social.href}
-              target="_blank"
-              rel="noopener noreferrer"
-                className="w-12 h-12 rounded-full bg-cream-dark dark:bg-black-light border border-blue-light/30 flex items-center justify-center text-blue dark:text-blue-light hover:bg-blue-light/10 dark:hover:bg-blue/20 transition-colors"
-                whileHover={{ scale: 1.15, rotate: [0, -10, 10, -10, 0] }}
-              whileTap={{ scale: 0.9 }}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 + 0.8 }}
+              href="#contact"
+              className="px-6 py-2.5 sm:px-8 sm:py-3 border border-zinc-800 hover:border-zinc-500 text-white text-xs sm:text-sm font-tech font-bold rounded-full transition-colors inline-flex items-center justify-center select-none cursor-pointer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-                <social.icon className="text-xl" />
+              GET IN TOUCH
             </motion.a>
-            ))}
+
+            {/* Outlined Socials */}
+            <div className="flex gap-3 pl-2 sm:pl-4">
+              {[
+                { icon: FaGithub, href: 'https://github.com/Prateeeek7', label: 'GitHub' },
+                { icon: FaLinkedin, href: 'https://www.linkedin.com/in/pratik-kumar-198172186', label: 'LinkedIn' },
+                { icon: FaEnvelope, href: 'mailto:pratik2002singh@gmail.com', label: 'Email' },
+              ].map((social) => (
+                <motion.a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-zinc-800 hover:border-zinc-500 flex items-center justify-center text-zinc-400 hover:text-white transition-colors"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  aria-label={social.label}
+                >
+                  <social.icon className="text-sm sm:text-base" />
+                </motion.a>
+              ))}
+            </div>
           </motion.div>
         </motion.div>
 
+        {/* Right Column: Profile image card */}
         <motion.div
-          className="relative flex justify-center items-center mt-8 lg:mt-0"
-          initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
-          animate={{ opacity: 1, scale: 1, rotate: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
+          className="lg:col-span-5 flex justify-center items-center mt-8 lg:mt-0"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <motion.div
-            className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96"
-            animate={{
-              y: [0, -20, 0],
-            }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              ease: 'easeInOut',
-            }}
-          >
-            {/* Glow effect */}
-            <motion.div
-              className="absolute inset-0 bg-gradient-primary rounded-full blur-3xl opacity-30"
-              animate={{
-                scale: [1, 1.2, 1],
-                opacity: [0.3, 0.5, 0.3],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: 'easeInOut',
-              }}
-            />
-            
-            {/* Image */}
-            <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-transparent bg-gradient-primary p-1">
+          <div className="w-[280px] sm:w-[320px] bg-zinc-950 border border-zinc-800/80 rounded-lg p-3 hover:border-zinc-700 transition-all group select-none">
+            {/* Aspect ratio box for image */}
+            <div className="relative w-full aspect-[4/5] rounded overflow-hidden bg-zinc-900 border border-zinc-800/40">
               <img
                 src={getProfileImage()}
                 alt={personal.name}
-                className="w-full h-full object-cover rounded-full"
+                className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
               />
             </div>
             
-            {/* Animated ring */}
-            <motion.div
-              className="absolute inset-0 rounded-full border-2 border-blue-light/50"
-              animate={{
-                rotate: 360,
-                scale: [1, 1.1, 1],
-              }}
-              transition={{
-                rotate: {
-                  duration: 20,
-                  repeat: Infinity,
-                  ease: 'linear',
-                },
-                scale: {
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: 'easeInOut',
-                },
-              }}
-            />
-          </motion.div>
+            {/* Tags row */}
+            <div className="mt-3.5 pt-3.5 border-t border-zinc-900 flex flex-col items-center">
+              <div className="text-[10px] font-tech text-zinc-300 text-center tracking-wider leading-relaxed">
+                FULL STACK & AI • VIT VELLORE • FIGMA • REACT • PYTORCH • TENSORFLOW • KERAS
+              </div>
+            </div>
+          </div>
         </motion.div>
       </div>
-
-
-      {/* Resume PDF Icon - Top Right Corner */}
-      <AnimatePresence>
-        {isHeroInView && (
-          <motion.a
-            href="/resume.pdf?v=2"
-            download="Pratik_Kumar_Resume.pdf"
-            className="fixed right-4 sm:right-8 z-50 hidden sm:block"
-            style={{ top: 'calc(5rem + 15px)' }}
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 20 }}
-            transition={{ delay: 0.8, duration: 0.6 }}
-            onMouseEnter={() => setShowResumePreviewCTA(true)}
-            onMouseLeave={() => setShowResumePreviewCTA(false)}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-      >
-            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-primary shadow-lg shadow-blue/30 flex items-center justify-center text-cream hover:shadow-xl hover:shadow-blue/40 transition-all">
-              <FaFilePdf className="text-xl sm:text-2xl" />
-            </div>
-      </motion.a>
-        )}
-      </AnimatePresence>
-
     </section>
   );
 };
 
 export default Hero;
-

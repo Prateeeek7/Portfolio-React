@@ -1,25 +1,25 @@
 import { useState } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { useTheme } from '../hooks/useTheme';
-import { FaSun, FaMoon, FaBars, FaTimes } from 'react-icons/fa';
+import { FaBars, FaTimes } from 'react-icons/fa';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { theme, toggleTheme } = useTheme();
   const { scrollY } = useScroll();
+
+  // Custom transparent-to-solid transitions for cockpit HUD look
   const backgroundColor = useTransform(
     scrollY,
     [0, 100],
-    theme === 'dark' 
-      ? ['rgba(0, 0, 0, 0)', 'rgba(0, 0, 0, 0.95)']
-      : ['rgba(239, 236, 227, 0)', 'rgba(239, 236, 227, 0.95)']
+    ['rgba(0, 0, 0, 0)', 'rgba(0, 0, 0, 0.95)']
   );
-  const blur = useTransform(scrollY, [0, 100], [0, 20]);
+  
+  const blur = useTransform(scrollY, [0, 100], [0, 15]);
 
   const navItems = [
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
     { name: 'Skills', href: '#skills' },
+    { name: 'Impact', href: '#impact' },
     { name: 'Projects', href: '#projects' },
     { name: 'Contact', href: '#contact' },
   ];
@@ -30,93 +30,70 @@ const Navbar = () => {
         backgroundColor,
         backdropFilter: `blur(${blur}px)`,
       }}
-      className="fixed top-0 w-full z-50 py-3 sm:py-4 border-b border-blue-light/20"
+      className="fixed top-0 w-full z-50 py-3 sm:py-4 border-b border-zinc-900 select-none pointer-events-auto"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.5, ease: 'easeOut' }}
+      transition={{ duration: 0.4, ease: 'easeOut' }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-        <motion.a
-          href="#home"
-          className="text-xl sm:text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-            Pratik.k
-        </motion.a>
-
-        <ul className="hidden md:flex list-none gap-8 items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Desktop Layout: Distributed Full-Width Links */}
+        <ul className="hidden md:flex justify-between items-center w-full list-none m-0 p-0">
           {navItems.map((item, index) => (
             <motion.li
               key={item.name}
-              initial={{ opacity: 0, y: -20 }}
+              initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
+              transition={{ delay: index * 0.05 }}
+              className="flex-1 text-center"
             >
-              <motion.a
+              <a
                 href={item.href}
-                className="relative text-black dark:text-cream font-medium transition-colors hover:text-blue dark:hover:text-blue-light"
-                whileHover={{ y: -2 }}
-                whileTap={{ y: 0 }}
+                className="relative text-[10.5px] sm:text-xs font-tech tracking-widest uppercase text-zinc-450 hover:text-white transition-all duration-300 py-2 block w-full"
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.textShadow = '0 0 10px rgba(255, 255, 255, 0.5)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.textShadow = 'none';
+                }}
               >
                 {item.name}
-                <motion.span
-                  className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-primary origin-left"
-                  initial={{ scaleX: 0 }}
-                  whileHover={{ scaleX: 1 }}
-                  transition={{ duration: 0.3 }}
-                />
-              </motion.a>
+              </a>
             </motion.li>
           ))}
         </ul>
 
-        <div className="flex gap-4 items-center">
-          <motion.button
-            onClick={toggleTheme}
-            className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-cream-dark dark:bg-black-light border border-blue-light/30 flex items-center justify-center text-black dark:text-cream transition-colors touch-manipulation"
-            whileHover={{ scale: 1.1, rotate: 180 }}
-            whileTap={{ scale: 0.9 }}
-            transition={{ duration: 0.3 }}
-          >
-            {theme === 'light' ? <FaMoon /> : <FaSun />}
-          </motion.button>
-
-          <motion.button
-            className="md:hidden w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center text-black dark:text-cream text-2xl touch-manipulation"
+        {/* Mobile Layout: Hamburger Menu Button (since there's no logo) */}
+        <div className="md:hidden flex justify-end items-center w-full">
+          <button
+            className="w-9 h-9 border border-zinc-800 rounded-full flex items-center justify-center text-zinc-400 hover:text-white hover:border-zinc-500 transition-colors text-sm"
             onClick={() => setIsOpen(!isOpen)}
-            whileTap={{ scale: 0.9 }}
+            aria-label="Toggle Menu"
           >
             {isOpen ? <FaTimes /> : <FaBars />}
-          </motion.button>
+          </button>
         </div>
       </div>
 
+      {/* Mobile Drawer */}
       <AnimatePresence>
         {isOpen && (
           <motion.ul
-            initial={{ opacity: 0, x: -100 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -100 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden absolute top-full left-0 w-full bg-cream dark:bg-black border-b border-blue-light/20 shadow-lg p-6 flex flex-col gap-4"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.2 }}
+            className="md:hidden absolute top-full left-0 w-full bg-zinc-950 border-b border-zinc-900 shadow-xl m-0 p-4 flex flex-col gap-1 list-none"
           >
-            {navItems.map((item, index) => (
-              <motion.li
-                key={item.name}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <motion.a
+            {navItems.map((item) => (
+              <li key={item.name}>
+                <a
                   href={item.href}
                   onClick={() => setIsOpen(false)}
-                  className="block text-black dark:text-cream font-medium py-3 px-2 transition-colors hover:text-blue dark:hover:text-blue-light touch-manipulation min-h-[44px] flex items-center"
-                  whileHover={{ x: 5 }}
+                  className="block text-[11px] font-tech uppercase tracking-wider text-zinc-400 hover:text-white hover:bg-zinc-900 rounded py-2.5 px-3 transition-all"
                 >
                   {item.name}
-                </motion.a>
-              </motion.li>
+                </a>
+              </li>
             ))}
           </motion.ul>
         )}
@@ -126,4 +103,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

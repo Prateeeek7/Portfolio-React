@@ -1,58 +1,47 @@
-// Unique Color Palette - Modern & Vibrant
+// Design Color System - Modern Cockpit Dashboard theme
 export const colors = {
-  // Primary gradient colors
-  primary: {
-    light: '#FF6B6B',      // Coral Red
-    main: '#E63946',       // Vibrant Red
-    dark: '#C1121F',       // Deep Red
-  },
-  // Secondary gradient colors
-  secondary: {
-    light: '#4ECDC4',      // Turquoise
-    main: '#06A77D',       // Teal
-    dark: '#048A68',       // Dark Teal
-  },
   // Accent colors
   accent: {
-    purple: '#9B59B6',     // Purple
-    orange: '#FF8C42',     // Orange
-    yellow: '#FFD93D',     // Yellow
-    blue: '#4A90E2',       // Blue
+    cyan: '#00E5FF',       // Neon Cyan
+    teal: '#00BFA5',       // Neon Teal
+    purple: '#D500F9',     // Neon Purple
+    blue: '#2979FF',       // Neon Blue
+    green: '#00E676',      // Neon Green
+    orange: '#FF9100',     // Neon Orange
   },
-  // Neutral colors
+  // Neutrals
   neutral: {
     white: '#FFFFFF',
-    light: '#F8F9FA',
-    gray: '#6C757D',
-    dark: '#212529',
+    light: '#F4F4F6',
+    gray: '#8E8E93',
+    dark: '#121215',
     black: '#000000',
   },
-  // Background gradients
+  // Gradients
   gradients: {
-    hero: 'linear-gradient(135deg, #E63946 0%, #06A77D 50%, #4A90E2 100%)',
-    card: 'linear-gradient(135deg, rgba(230, 57, 70, 0.1) 0%, rgba(6, 167, 125, 0.1) 100%)',
-    skill: 'linear-gradient(90deg, #E63946 0%, #06A77D 100%)',
-    button: 'linear-gradient(135deg, #E63946 0%, #FF6B6B 100%)',
-  },
+    hero: 'linear-gradient(135deg, #00E5FF 0%, #2979FF 50%, #D500F9 100%)',
+    border: 'linear-gradient(135deg, rgba(0, 229, 255, 0.2) 0%, rgba(213, 0, 249, 0.2) 100%)',
+    hud: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01))',
+  }
 } as const;
 
 export const theme = {
   light: {
-    bg: colors.neutral.white,
-    bgSecondary: colors.neutral.light,
-    text: colors.neutral.dark,
-    textSecondary: colors.neutral.gray,
-    border: '#E0E0E0',
+    bg: '#F4F4F6',
+    bgSecondary: '#FFFFFF',
+    text: '#121215',
+    textSecondary: '#636366',
+    border: '#E5E5EA',
+    accent: '#2979FF',
+    gridColor: 'rgba(0, 0, 0, 0.03)',
   },
   dark: {
-    bg: '#0F0F1E',
-    bgSecondary: '#1A1A2E',
-    text: colors.neutral.white,
-    textSecondary: '#B0B0B0',
-    border: '#2A2A3E',
+    bg: '#000000',
+    bgSecondary: '#0A0A0C',
+    text: '#FFFFFF',
+    textSecondary: '#8E8E93',
+    border: '#1C1C1E',
+    accent: '#00E5FF',
+    gridColor: 'rgba(255, 255, 255, 0.02)',
   },
 } as const;
-
-
-
-
