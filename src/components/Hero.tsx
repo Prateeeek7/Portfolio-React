@@ -146,6 +146,17 @@ const Hero = ({ personal }: HeroProps) => {
               <span className="text-[9px] font-tech text-zinc-500 tracking-widest block uppercase">GPS LOCATION</span>
               <span className="text-xs font-tech text-zinc-300">Vellore, Tamil Nadu, IN</span>
             </div>
+            <div className="mt-2 col-span-2">
+              <span className="text-[9px] font-tech text-zinc-500 tracking-widest block uppercase">BIOMEDICAL PORTFOLIO</span>
+              <a
+                href="https://pratik-biomedical.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs font-tech text-blue-500 hover:text-blue-450 hover:underline transition-all cursor-pointer pointer-events-auto block"
+              >
+                pratik-biomedical.vercel.app
+              </a>
+            </div>
           </motion.div>
 
           {/* Action buttons & socials */}

@@ -123,6 +123,7 @@ const Contact = ({ personal, social }: ContactProps) => {
                   { label: 'LINKEDIN', href: social.linkedin },
                   { label: 'GITHUB', href: social.github },
                   { label: 'TWITTER', href: social.twitter },
+                  { label: 'BIOMEDICAL PORTFOLIO', href: 'https://pratik-biomedical.vercel.app/' },
                 ].map((soc, idx) => (
                   <motion.a
                     key={soc.label}
